@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { getHistory, getReviewById, deleteReview, getStats } = require('../controllers/historyController');
+const { protect } = require('../middleware/authMiddleware');
+router.use(protect);
+router.get('/stats', getStats);
+router.get('/', getHistory);
+router.get('/:id', getReviewById);
+router.delete('/:id', deleteReview);
+module.exports = router;

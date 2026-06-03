@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyan: #06b6d4;
+  --violet: #8b5cf6;
+  --pink: #ec4899;
+  --bg: #020408;
+  --card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a0f1a; }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+
+/* ── Components ─────────────────────────── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 12px;
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  color: #fff; font-weight: 600; font-size: 14px;
+  transition: all .2s; cursor: pointer; border: none;
+  box-shadow: 0 4px 24px rgba(6,182,212,.25);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 32px rgba(6,182,212,.35); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 22px; border-radius: 12px;
+  background: var(--card); color: #cbd5e1; font-weight: 500; font-size: 14px;
+  border: 1px solid var(--border); transition: all .2s; cursor: pointer;
+}
+.btn-ghost:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.15); color: #fff; }
+.btn-ghost:disabled { opacity: .5; cursor: not-allowed; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.input {
+  width: 100%; background: rgba(255,255,255,.04);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 14px; color: #e2e8f0; font-size: 14px;
+  font-family: 'Inter', sans-serif; outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.input:focus { border-color: #06b6d4; box-shadow: 0 0 0 3px rgba(6,182,212,.12); }
+.input::placeholder { color: #475569; }
+
+.code-area {
+  width: 100%; background: #050b15;
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px; color: #e2e8f0; font-size: 13px;
+  font-family: 'JetBrains Mono', monospace; outline: none;
+  resize: vertical; line-height: 1.7; min-height: 320px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.code-area:focus { border-color: rgba(6,182,212,.4); box-shadow: 0 0 0 3px rgba(6,182,212,.08); }
+.code-area::placeholder { color: #334155; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-cyan { box-shadow: 0 0 30px rgba(6,182,212,.2); }
+.glow-violet { box-shadow: 0 0 30px rgba(139,92,246,.2); }
+
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: #475569;
+}
+
+/* canvas full bleed */
+#hero-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+/* floating code lines animation */
+@keyframes floatUp {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: .6; }
+  100% { transform: translateY(-120vh) translateX(30px); opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: .6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spin-rev  { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up { animation: fadeSlideUp .6s ease-out forwards; }
+.anim-fade-up-d1 { animation: fadeSlideUp .6s .15s ease-out both; }
+.anim-fade-up-d2 { animation: fadeSlideUp .6s .3s  ease-out both; }
+.anim-fade-up-d3 { animation: fadeSlideUp .6s .45s ease-out both; }
+.anim-fade-up-d4 { animation: fadeSlideUp .6s .6s  ease-out both; }
