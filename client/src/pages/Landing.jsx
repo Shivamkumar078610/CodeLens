@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
-import { ArrowRight, Zap, Shield, Code2, Star, Bug, Lightbulb, TrendingUp } from 'lucide-react';
+import { ArrowRight, Shield, Code2, Star, Bug, Lightbulb, TrendingUp } from 'lucide-react';
+import codeLensLogo from '../logo.jpeg';
 
 /* ─── Three.js Scene ─────────────────────────────────────────────────── */
 function useThreeScene(canvasRef) {
@@ -207,10 +208,7 @@ export default function Landing() {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4"
         style={{ background: 'rgba(2,4,8,0.7)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg,#06b6d4,#8b5cf6)' }}>
-            <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
-          </div>
+          <img src={codeLensLogo} alt="CodeLens" className="w-10 h-10 rounded-xl object-cover" style={{ boxShadow: '0 0 20px rgba(6,182,212,0.35)' }} />
           <span className="font-display font-bold text-lg text-white">
             Code<span className="gradient-text">Lens</span>
           </span>
@@ -343,9 +341,9 @@ export default function Landing() {
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="relative inline-block mb-10">
-            <div className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto"
-              style={{ background: 'linear-gradient(135deg,#06b6d4,#8b5cf6)', boxShadow: '0 0 60px rgba(6,182,212,0.4)' }}>
-              <Zap className="w-9 h-9 text-white" strokeWidth={2.5} />
+            <div className="w-20 h-20 rounded-2xl overflow-hidden mx-auto"
+              style={{ boxShadow: '0 0 60px rgba(6,182,212,0.4)' }}>
+              <img src={codeLensLogo} alt="CodeLens" className="w-full h-full object-cover" />
             </div>
             <div className="absolute inset-[-20px] rounded-full border opacity-30"
               style={{ borderColor: '#06b6d4', animation: 'spin-slow 6s linear infinite' }}>
@@ -375,10 +373,7 @@ export default function Landing() {
       <footer className="border-t px-6 py-8 text-center"
         style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="flex items-center justify-center gap-2 mb-3">
-          <div className="w-5 h-5 rounded flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg,#06b6d4,#8b5cf6)' }}>
-            <Zap className="w-3 h-3 text-white" strokeWidth={2.5} />
-          </div>
+          <img src={codeLensLogo} alt="CodeLens" className="w-6 h-6 rounded-lg object-cover" />
           <span className="font-display font-bold text-sm text-white">CodeLens</span>
         </div>
         <p className="text-slate-600 text-xs">
