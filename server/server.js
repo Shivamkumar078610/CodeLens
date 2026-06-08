@@ -50,7 +50,7 @@ app.use(errorHandler);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('✅ MongoDB connected');
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 Server running → http://localhost:${PORT}`);
       console.log(`🤖 AI Provider: OpenRouter`);
       console.log(`📌 Node.js version: ${process.version}`);
